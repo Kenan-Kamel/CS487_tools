@@ -1,0 +1,24 @@
+--- ../recparse.c	2026-11-12 20:28:36.578330128 -0600
++++ recparse-fixed.c	2026-11-12 20:29:02.054099329 -0600
+@@ -44,7 +44,11 @@
+     size_t name_len = strnlen(name, avail);
+     if ((long)name_len == avail) return -1;        /* no NUL in range */
+ 
+-    strcpy(r->name, name);
++    if (name_len >= sizeof r->name) {
++        fprintf(stderr, "name too long (%zu)\n", name_len);
++        return -1;
++    }
++    memcpy(r->name, name, name_len + 1);
+     p += name_len + 1;
+     avail -= name_len + 1;
+ 
+@@ -54,7 +58,7 @@
+     p += 4;
+     avail -= 4;
+ 
+-    if (len > MAX_DATA) {
++    if (len < 0 || len > MAX_DATA) {
+         fprintf(stderr, "record too long (%d)\n", len);
+         return -1;
+     }

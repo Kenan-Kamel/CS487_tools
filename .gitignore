@@ -5,3 +5,7 @@ node_modules/
 # (e.g. to publish them with GitHub Pages).
 slides/*.html
 slides/*.pdf
+lab/station1-find-and-fix/recparse
+lab/station1-find-and-fix/recparse-asan
+lab/station1-find-and-fix/inputs/
+lab/station3-ghidra/keycheck

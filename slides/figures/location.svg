@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1029.394531pt" height="202.896pt" viewBox="0 0 1029.394531 202.896" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T02:48:49.519440</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 202.896 
+L 1029.394531 202.896 
+L 1029.394531 -0 
+L 0 -0 
+L 0 202.896 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 408.394531 195.696 
+L 1022.194531 195.696 
+L 1022.194531 7.2 
+L 408.394531 7.2 
+L 408.394531 195.696 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 408.394531 45.11695 
+L 812.970802 45.11695 
+L 812.970802 15.768 
+L 408.394531 15.768 
+z
+" clip-path="url(#pf89e1d92b9)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 408.394531 92.453967 
+L 575.362516 92.453967 
+L 575.362516 63.105017 
+L 408.394531 63.105017 
+z
+" clip-path="url(#pf89e1d92b9)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 408.394531 139.790983 
+L 928.564023 139.790983 
+L 928.564023 110.442033 
+L 408.394531 110.442033 
+z
+" clip-path="url(#pf89e1d92b9)" style="fill: #d50032"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 408.394531 187.128 
+L 819.392648 187.128 
+L 819.392648 157.77905 
+L 408.394531 157.77905 
+z
+" clip-path="url(#pf89e1d92b9)" style="fill: #d50032"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="404.894531" y="35.877631" transform="rotate(-0 404.894531 35.877631)">Real fixes NOT at the crash location  (ARVO, 6,138 bugs)</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="404.894531" y="83.214648" transform="rotate(-0 404.894531 83.214648)">Real fixes at a location in the crash log  (ARVO)</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="404.894531" y="130.551665" transform="rotate(-0 404.894531 130.551665)">Agent patches ON the crash stack  (PatchBench, top agent)</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="404.894531" y="177.888681" transform="rotate(-0 404.894531 177.888681)">...still on the stack when the real fix was elsewhere</text>
+     </g>
+    </g>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="820.773345" y="34.579975" transform="rotate(-0 820.773345 34.579975)">63%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="583.165059" y="81.916992" transform="rotate(-0 583.165059 81.916992)">26%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="936.366565" y="129.254008" transform="rotate(-0 936.366565 129.254008)">81%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="827.19519" y="176.591025" transform="rotate(-0 827.19519 176.591025)">64%</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf89e1d92b9">
+   <rect x="408.394531" y="7.2" width="613.8" height="188.496"/>
+  </clipPath>
+ </defs>
+</svg>

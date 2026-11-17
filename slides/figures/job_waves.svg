@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="756.717736pt" height="262.484688pt" viewBox="0 0 756.717736 262.484688" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T02:48:49.454789</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 262.484688 
+L 756.717736 262.484688 
+L 756.717736 0 
+L 0 0 
+L 0 262.484688 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 7.2 223.654313 
+L 292.13617 223.654313 
+L 292.13617 24.070313 
+L 7.2 24.070313 
+L 7.2 223.654313 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 20.151644 223.654313 
+L 79.928463 223.654313 
+L 79.928463 118.50762 
+L 20.151644 118.50762 
+z
+" clip-path="url(#pb57203e908)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 119.779676 223.654313 
+L 179.556495 223.654313 
+L 179.556495 184.711093 
+L 119.779676 184.711093 
+z
+" clip-path="url(#pb57203e908)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 219.407707 223.654313 
+L 279.184526 223.654313 
+L 279.184526 58.14563 
+L 219.407707 58.14563 
+z
+" clip-path="url(#pb57203e908)" style="fill: #d9dde6"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(22.79146 237.299938)">2015–18</text>
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(10.353335 252.379688)">job searches</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(122.419491 237.299938)">2018–19</text>
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(98.313241 252.379688)">security demand</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(222.047523 237.299938)">2019–24</text>
+      <text style="font-size: 14px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; fill: #656665" transform="translate(220.502054 252.379688)">projected</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="50.040054" y="113.639717" transform="rotate(-0 50.040054 113.639717)">+108%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="149.668085" y="179.843191" transform="rotate(-0 149.668085 179.843191)">+40%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="249.296117" y="53.277727" transform="rotate(-0 249.296117 53.277727)">+170%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="7.2" y="18.070313" transform="rotate(-0 7.2 18.070313)">Cloud wave: growth in demand</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_6">
+    <path d="M 391.86383 223.654313 
+L 676.8 223.654313 
+L 676.8 24.070313 
+L 391.86383 24.070313 
+L 391.86383 223.654313 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 404.815474 223.654313 
+L 464.592293 223.654313 
+L 464.592293 187.618313 
+L 404.815474 187.618313 
+z
+" clip-path="url(#p8d97e34dd5)" style="fill: #d50032"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 504.443505 223.654313 
+L 564.220324 223.654313 
+L 564.220324 144.929513 
+L 504.443505 144.929513 
+z
+" clip-path="url(#p8d97e34dd5)" style="fill: #d50032"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 604.071537 223.654313 
+L 663.848356 223.654313 
+L 663.848356 65.650313 
+L 604.071537 65.650313 
+z
+" clip-path="url(#p8d97e34dd5)" style="fill: #d50032"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_8">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #656665" x="434.703883" y="238.024625" transform="rotate(-0 434.703883 238.024625)">2023</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_9">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #656665" x="534.331915" y="238.024625" transform="rotate(-0 534.331915 238.024625)">2024–25</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6"/>
+     <g id="text_10">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #656665" x="633.959946" y="238.024625" transform="rotate(-0 633.959946 238.024625)">2025–26</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4"/>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="434.703883" y="182.074313" transform="rotate(-0 434.703883 182.074313)">6.5%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="534.331915" y="139.385513" transform="rotate(-0 534.331915 139.385513)">14.2%</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="633.959946" y="60.106313" transform="rotate(-0 633.959946 60.106313)">28.5%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="391.86383" y="18.070313" transform="rotate(-0 391.86383 18.070313)">AI wave: share of cyber job postings requiring AI skills</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb57203e908">
+   <rect x="7.2" y="24.070313" width="284.93617" height="199.584"/>
+  </clipPath>
+  <clipPath id="p8d97e34dd5">
+   <rect x="391.86383" y="24.070313" width="284.93617" height="199.584"/>
+  </clipPath>
+ </defs>
+</svg>

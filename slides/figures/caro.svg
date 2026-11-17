@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="416.16pt" height="237.249125pt" viewBox="0 0 416.16 237.249125" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-17T02:48:49.539902</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.249125 
+L 416.16 237.249125 
+L 416.16 0 
+L 0 0 
+L 0 237.249125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 7.2 212.566312 
+L 408.96 212.566312 
+L 408.96 24.070312 
+L 7.2 24.070312 
+L 7.2 212.566312 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 25.461818 212.566312 
+L 99.378701 212.566312 
+L 99.378701 146.592713 
+L 25.461818 146.592713 
+z
+" clip-path="url(#pde71f1a591)" style="fill: #d9dde6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 242.864416 212.566312 
+L 316.781299 212.566312 
+L 316.781299 139.052872 
+L 242.864416 139.052872 
+z
+" clip-path="url(#pde71f1a591)" style="fill: #d9dde6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 99.378701 212.566312 
+L 173.295584 212.566312 
+L 173.295584 112.663432 
+L 99.378701 112.663432 
+z
+" clip-path="url(#pde71f1a591)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 316.781299 212.566312 
+L 390.698182 212.566312 
+L 390.698182 99.468712 
+L 316.781299 99.468712 
+z
+" clip-path="url(#pde71f1a591)" style="fill: #0a4fa3"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #656665" x="99.378701" y="226.936625" transform="rotate(-0 99.378701 226.936625)">Qwen3 27B</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #656665" x="316.781299" y="226.936625" transform="rotate(-0 316.781299 226.936625)">Claude Sonnet 4.6</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="62.42026" y="143.765273" transform="rotate(-0 62.42026 143.765273)">35%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="279.822857" y="136.225433" transform="rotate(-0 279.822857 136.225433)">39%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="136.337143" y="109.835993" transform="rotate(-0 136.337143 109.835993)">53%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: middle; fill: #2b2b2b" x="353.73974" y="96.641273" transform="rotate(-0 353.73974 96.641273)">60%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="7.2" y="18.070312" transform="rotate(-0 7.2 18.070312)">Patches at the maintainer's fix location</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_7">
+     <path d="M 71.611484 45.19125 
+L 97.611484 45.19125 
+L 97.611484 36.09125 
+L 71.611484 36.09125 
+z
+" style="fill: #d9dde6"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 13px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="108.011484" y="45.19125" transform="rotate(-0 108.011484 45.19125)">No hint</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 175.199141 45.19125 
+L 201.199141 45.19125 
+L 201.199141 36.09125 
+L 175.199141 36.09125 
+z
+" style="fill: #0a4fa3"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 13px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="211.599141" y="45.19125" transform="rotate(-0 211.599141 45.19125)">Told where the fix goes</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pde71f1a591">
+   <rect x="7.2" y="24.070312" width="401.76" height="188.496"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,20 @@
+--- ../recparse.c	2026-11-12 20:28:36.578330128 -0600
++++ recparse-plausible.c	2026-11-12 20:29:02.054058283 -0600
+@@ -44,7 +44,7 @@
+     size_t name_len = strnlen(name, avail);
+     if ((long)name_len == avail) return -1;        /* no NUL in range */
+ 
+-    strcpy(r->name, name);
++    strncpy(r->name, name, sizeof r->name);
+     p += name_len + 1;
+     avail -= name_len + 1;
+ 
+@@ -54,7 +54,7 @@
+     p += 4;
+     avail -= 4;
+ 
+-    if (len > MAX_DATA) {
++    if (len < 0 || len > MAX_DATA) {
+         fprintf(stderr, "record too long (%d)\n", len);
+         return -1;
+     }
