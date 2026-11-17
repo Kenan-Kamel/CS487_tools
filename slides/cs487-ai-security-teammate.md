@@ -694,100 +694,46 @@ printf("name=%s\n", name);         /* reads past name into the next field */
 <!-- _class: divider -->
 
 # Part 3 · Hands-on
-Station 1 is yours. Stations 2 and 3 are on the projector.
+Two live demos on the projector.
 
 ---
 
-## Station 1 · Find, fix, then break the fix
-
-![w:1080](figures/station1.svg)
-
-```sh
-cd lab/station1-find-and-fix && make inputs && make && ./check.sh    # 3 FAIL
-flawfinder recparse.c ; cppcheck --enable=warning,style recparse.c
-export ANTHROPIC_API_KEY=...   # class key, revoked after class
-claude
-```
-
-<!--
-28 min, pairs. Hand out the key now. Steps: check.sh → analyzers → agent with
-code AND analyzer output → check.sh → run leak-name32.bin and read the name →
-write one input you think the patch mishandles. Record: analyzer findings vs real
-bugs, did the first patch pass, does the neighbor's patch match.
--->
-
----
-
-## Station 1 · What the analyzers say
-
-```
-$ gcc -Wall -Wextra -O2 -c recparse.c          # silent
-$ flawfinder --dataonly recparse.c
-recparse.c:47:  [4] strcpy: Does not check for buffer overflows (CWE-120)
-recparse.c:21:  [2] char:   Statically-sized arrays can be improperly restricted
-recparse.c:28:  [2] fopen:  Check when opening files - can an attacker redirect it
-recparse.c:53:  [2] memcpy: Does not check for buffer overflows (CWE-120)
-recparse.c:63:  [2] memcpy: Does not check for buffer overflows (CWE-120)
-```
-
-<pause>
-
-| line | verdict |
-|---|---|
-| 47 | <span class="ok">✓</span> the bug it says it is |
-| 63 | <span class="ok">✓</span> a bug, but the cause is a **signed** `len` check six lines up |
-| 21, 28, 53 | <span class="bad">✗</span> noise |
-
----
-
-## Station 1 · Debrief
-
-<div class="cols">
-<div>
-
-* **First patch passed `check.sh`?** Usually. Passed `leak-name32`? Often not.
-* **Neighbor got the same patch?** Rarely. Same model, same prompt.
-* **Your 6th input?** `len == MAX_DATA` · truncated length · empty file · no NUL
-
-</div>
-<div>
-
-<div class="box">
-
-A test suite is a finite set of counterexample searches. It proves *incorrect*. It cannot prove *correct*.
-
-**You** chose the property (no leak, not just no crash) and wrote the input. The agent cannot do that part.
-
-</div>
-
-</div>
-</div>
-
----
-
-## Station 2 · An agent reads packets
-
-![w:1080](figures/network.svg)
-
-<!--
-tshark -r demo.pcap -q -z conv,tcp ; then claude with tshark on PATH.
-Prompts: summarize · anything to flag? · decode the Authorization header · who is
-scanning and what did they learn · write me the display filter.
-Then: which of these would a display filter have given you in 10 seconds?
-The agent reads tshark's text. It cannot see bytes tshark didn't decode.
--->
-
----
-
-## Station 3 · An agent drives Ghidra
+## Station 1 · Heartbleed in Ghidra (CVE-2014-0160)
 
 ![w:1080](figures/ghidra.svg)
 
+A stripped binary reproducing the Heartbleed vulnerability. Import it into
+Ghidra, export the decompiled C, and paste it into an LLM.
+
+The LLM finds the missing bounds check on `memcpy` — the same one-line bug
+that leaked private keys from 17% of HTTPS servers for two years.
+
 <!--
-Prompts: what does it check · describe the key format · any way in without a valid
-key? · rename everything · give me a key (it offers to brute-force; findkey.py did).
-It will describe FNV-1a confidently: make it show the decompiled line.
-Fallback: export decompiled C from Ghidra and hand the file to Claude Code.
+Run: bash lab/demo.sh (Station 1 section). Build heartbleed, trigger.py,
+show the hex dump with leaked secrets. Then Ghidra: decompile, paste into
+claude.ai, ask for vulnerabilities. The LLM spots the client-controlled
+length immediately. Show the one-line fix.
+-->
+
+---
+
+## Station 2 · Finding a backdoor in a key checker
+
+![w:1080](figures/ghidra.svg)
+
+A stripped license-key binary using FNV-1a hashing — plus a hard-coded
+support key that bypasses validation entirely.
+
+The LLM identifies the hash algorithm from two constants and finds the
+`strcmp` backdoor on a separate code path.
+
+**Ask the class:** should this backdoor exist? Who do you tell?
+
+<!--
+Run: bash lab/demo.sh (Station 2 section). Build keycheck, findkey.py,
+show the backdoor key UIC-DEBUG-1. In Ghidra: decompile, paste into
+claude.ai. The LLM finds the backdoor in seconds. Point out: the model
+finds the code, but it cannot tell you if it is authorized.
 -->
 
 ---
