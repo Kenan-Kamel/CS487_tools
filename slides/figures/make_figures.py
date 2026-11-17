@@ -349,8 +349,170 @@ def landscape():
     b += text(540, 430, "→ = acquired, 2025–26.  Every box ships an agent, and therefore also has to defend one.", 16, GRAY, "middle")
     write("landscape.svg", svg(1080, 450, b))
 
+
+# ---------- definitions (slide style borrowed from the agent-stack figure) ----------
+PINK, PBLUE, PGREEN, PYEL = "#fde3dc", "#dbeafe", "#dcf5e3", "#fff3c4"
+
+def card(x, y, w, h, title, sub="", icon="", r=16):
+    t = f"<rect x='{x}' y='{y}' width='{w}' height='{h}' rx='{r}' fill='#fff' stroke='{INK}' stroke-width='2.2'/>"
+    if icon:
+        t += f"<text x='{x + w / 2}' y='{y + h / 2 - 6}' text-anchor='middle' font-size='46'>{icon}</text>"
+    t += f"<text x='{x + w / 2}' y='{y + h / 2 + 40}' text-anchor='middle' font-size='24' font-weight='700' fill='{INK}'>{title}</text>"
+    if sub:
+        t += f"<text x='{x + w / 2}' y='{y + h / 2 + 64}' text-anchor='middle' font-size='16' fill='{BLUE}'>{sub}</text>"
+    return t
+
+def chip(x, y, w, label, fill, letter=""):
+    t = f"<rect x='{x}' y='{y}' width='{w}' height='32' rx='7' fill='{fill}' stroke='#d0d4dc'/>"
+    if letter:
+        t += f"<text x='{x + 14}' y='{y + 22}' font-size='17' font-style='italic' font-weight='700' fill='{INK}'>{letter}</text>"
+        t += f"<line x1='{x + 34}' y1='{y + 6}' x2='{x + 34}' y2='{y + 26}' stroke='#9aa0a8'/>"
+    t += f"<text x='{x + (46 if letter else 12)}' y='{y + 22}' font-size='16' font-weight='700' fill='{INK}'>{label}</text>"
+    return t
+
+def mini(x, y, w, h, icon, label):
+    t = f"<rect x='{x}' y='{y}' width='{w}' height='{h}' rx='10' fill='{TINT}' stroke='#c9ced8'/>"
+    t += f"<text x='{x + w / 2}' y='{y + h / 2 + 2}' text-anchor='middle' font-size='30'>{icon}</text>"
+    t += f"<text x='{x + w / 2}' y='{y + h - 10}' text-anchor='middle' font-size='14' font-weight='700' fill='{INK}'>{label}</text>"
+    return t
+
+def dbl_arrow(x1, x2, y):
+    return f"<path d='M{x1} {y} L{x2} {y}' stroke='#9aa0a8' stroke-width='3' marker-start='url(#a)' marker-end='url(#a)'/>"
+
+def genai():
+    b = ""
+    fam = [("💬", "Text and code", "ChatGPT · Claude · Gemini", "large language model (LLM)"),
+           ("🖼️", "Images and video", "Midjourney · Stable Diffusion", "diffusion model"),
+           ("🎙️", "Speech and audio", "Whisper · ElevenLabs", "speech / audio model")]
+    for i, (ic, ttl, ex, kind) in enumerate(fam):
+        x = 20 + i * 350
+        b += f"<rect x='{x}' y='20' width='330' height='120' rx='16' fill='#fff' stroke='{INK}' stroke-width='2.2'/>"
+        b += f"<text x='{x + 50}' y='{20 + 75}' text-anchor='middle' font-size='44'>{ic}</text>"
+        b += text(x + 95, 60, ttl, 23, INK, "start", True)
+        b += text(x + 95, 88, kind, 16, BLUE)
+        b += text(x + 95, 116, ex, 15, GRAY)
+    b += text(540, 178, "GenAI: learn the pattern from data, then generate new content from a prompt. Same idea in every box; this lecture is the first one.", 17, GRAY, "middle")
+    y = 205
+    b += f"<rect x='20' y='{y}' width='1040' height='185' rx='16' fill='{TINT}' stroke='#c9ced8'/>"
+    b += text(40, y + 32, "What an LLM actually does: predict the next token, append it, repeat", 19, NAVY, "start", True)
+    b += f"<rect x='40' y='{y + 60}' width='300' height='56' rx='10' fill='#fff' stroke='{INK}'/>"
+    b += text(190, y + 95, "The buffer overflow is in ▮", 19, INK, "middle")
+    b += arrow(345, y + 88, 420, y + 88)
+    b += f"<rect x='425' y='{y + 53}' width='120' height='70' rx='12' fill='#fff' stroke='{INK}' stroke-width='2.2'/>"
+    b += f"<text x='485' y='{y + 95}' text-anchor='middle' font-size='34'>🤖</text>"
+    b += text(485, y + 117, "LLM", 14, INK, "middle", True)
+    b += arrow(550, y + 88, 610, y + 88)
+    probs = [("strcpy", 0.41, RED), ("parse_record", 0.27, BLUE), ("main", 0.09, BLUE), ("…", 0.0, GRAY)]
+    for i, (tok, pr, col) in enumerate(probs):
+        yy = y + 56 + i * 28
+        b += text(620, yy + 15, tok, 15, col, "start", i == 0)
+        if pr:
+            b += f"<rect x='745' y='{yy}' width='{int(200 * pr)}' height='20' rx='4' fill='{col}' opacity='{1 if i == 0 else 0.35}'/>"
+            b += text(752 + int(200 * pr), yy + 15, f"{pr:.2f}", 14, INK)
+    b += text(980, y + 70, "pick one", 16, GRAY, "middle", True)
+    b += text(980, y + 92, "(usually the top,", 14, GRAY, "middle")
+    b += text(980, y + 110, "not always)", 14, GRAY, "middle")
+    b += text(980, y + 134, "append · loop", 16, GRAY, "middle", True)
+    b += f"<path d='M980 {y + 145} L980 {y + 168} L190 {y + 168} L190 {y + 120}' fill='none' stroke='#9aa0a8' stroke-width='2.5' stroke-dasharray='6 5' marker-end='url(#a)'/>"
+    write("genai.svg", svg(1080, 400, b))
+
+def agent_stack(security=False):
+    b = ""
+    # four cards
+    b += card(20, 70, 190, 240, "LLM", "inference engine", "🤖")
+    b += chip(36, 268, 158, "KV cache", PBLUE, "C")
+    b += dbl_arrow(222, 258, 190)
+    b += card(270, 70, 230, 240, "Harness", "agent loop", "🔁")
+    b += chip(286, 84, 198, "permission rules", PINK, "A")
+    b += chip(286, 268, 198, "transcript · memory", PBLUE, "C")
+    b += dbl_arrow(512, 548, 190)
+    # sandbox (dashed green)
+    b += f"<rect x='560' y='40' width='300' height='300' rx='18' fill='none' stroke='#3cab6a' stroke-width='2.5' stroke-dasharray='8 6'/>"
+    b += chip(576, 54, 268, "sandbox policy", PINK, "A")
+    b += text(710, 125, "Sandbox", 22, INK, "middle", True)
+    b += mini(576, 140, 84, 84, "🖥️", "shell")
+    b += mini(668, 140, 84, 84, "📁", "files")
+    b += mini(760, 140, 84, 84, "🐞", "gdb")
+    b += chip(576, 240, 268, "files · processes · network", PBLUE, "E")
+    b += text(710, 318, "tshark · ghidra · codeql", 14, GRAY, "middle")
+    b += f"<path d='M870 190 L905 190' stroke='#9aa0a8' stroke-width='3' marker-end='url(#a)'/>"
+    # world
+    b += f"<rect x='915' y='70' width='150' height='240' rx='16' fill='#fff' stroke='{INK}' stroke-width='2.2'/>"
+    b += chip(928, 84, 124, "effects", PINK, "X")
+    b += text(990, 150, "The world", 20, INK, "middle", True)
+    b += mini(928, 165, 56, 60, "🌐", "APIs")
+    b += mini(996, 165, 56, 60, "📦", "repos")
+    b += text(990, 262, "MCP servers,", 14, GRAY, "middle")
+    b += text(990, 280, "prod systems", 14, GRAY, "middle")
+    # legend
+    b += text(20, 380, "A  policy: who may do what", 15, GRAY)
+    b += text(300, 380, "C  state the loop carries", 15, GRAY)
+    b += text(560, 380, "E  environment it can touch", 15, GRAY)
+    b += text(860, 380, "X  what actually changes", 15, GRAY)
+    if security:
+        def note(x, y, lines, anchor="start"):
+            t = ""
+            for i, l in enumerate(lines):
+                t += text(x, y + i * 20, l, 15, RED, anchor, i == 0)
+            return t
+        b += f"<path d='M700 232 L700 -2' stroke='{RED}' stroke-width='2.5' stroke-dasharray='5 4' marker-end='url(#a)'/>"
+        b += note(685, 14, ["1 · untrusted input enters here", "file contents, web pages, tool output"], "end")
+        b += f"<circle cx='385' cy='100' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
+        b += note(300, 350, ["2 · the only gate: permission rules + sandbox policy"], "start")
+        b += f"<circle cx='990' cy='100' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
+        b += note(1065, 20, ["3 · attackers only care about X"], "end")
+    write("agent-stack-security.svg" if security else "agent-stack.svg", svg(1080, 390, b))
+
+def harness_loop():
+    b = ""
+    steps = [("1", "Build the prompt", "system rules + transcript + tool results", "📝"),
+             ("2", "Call the model", "one inference, returns text or a tool call", "🤖"),
+             ("3", "Check permission", "allow · ask the human · deny", "🔑"),
+             ("4", "Run the tool", "in the sandbox; capture output", "🖥️"),
+             ("5", "Append the result", "to the transcript; compact if too long", "📎")]
+    cx, cy, R = 300, 215, 150
+    import math
+    pts = []
+    for i in range(5):
+        ang = -math.pi / 2 + i * 2 * math.pi / 5
+        pts.append((cx + R * math.cos(ang), cy + R * math.sin(ang)))
+    for i, (x, y) in enumerate(pts):
+        nx, ny = pts[(i + 1) % 5]
+        dx, dy = nx - x, ny - y
+        L = math.hypot(dx, dy)
+        b += f"<line x1='{x + dx / L * 46:.0f}' y1='{y + dy / L * 46:.0f}' x2='{nx - dx / L * 48:.0f}' y2='{ny - dy / L * 48:.0f}' stroke='#9aa0a8' stroke-width='3' marker-end='url(#a)'/>"
+    for i, ((x, y), (n, ttl, sub, ic)) in enumerate(zip(pts, steps)):
+        col = RED if n == "3" else INK
+        b += f"<circle cx='{x:.0f}' cy='{y:.0f}' r='42' fill='#fff' stroke='{col}' stroke-width='2.5'/>"
+        b += f"<text x='{x:.0f}' y='{y + 10:.0f}' text-anchor='middle' font-size='30'>{ic}</text>"
+        b += f"<circle cx='{x + 30:.0f}' cy='{y - 30:.0f}' r='14' fill='{col}'/>"
+        b += text(x + 30, y - 25, n, 15, "#fff", "middle", True)
+    b += text(cx, cy - 8, "until the model", 15, GRAY, "middle")
+    b += text(cx, cy + 12, "says \"done\"", 15, GRAY, "middle")
+    b += text(cx, cy + 32, "or the budget runs out", 13, GRAY, "middle")
+    for i, (n, ttl, sub, ic) in enumerate(steps):
+        y = 60 + i * 66
+        col = RED if n == "3" else NAVY
+        b += f"<circle cx='530' cy='{y - 6}' r='14' fill='{col}'/>"
+        b += text(530, y - 1, n, 15, "#fff", "middle", True)
+        b += text(556, y, ttl, 20, col, "start", True)
+        b += text(556, y + 24, sub, 15, GRAY)
+    b += f"<rect x='820' y='48' width='240' height='330' rx='14' fill='{TINT}' stroke='#c9ced8'/>"
+    b += text(940, 80, "Harnesses you can run", 17, NAVY, "middle", True)
+    for i, (name, kind) in enumerate([("Claude Code", "terminal"), ("Codex CLI", "terminal"), ("Cursor · Copilot", "editor"), ("OpenHands", "open source"), ("Buttercup", "AIxCC")]):
+        b += text(840, 118 + i * 34, name, 17, INK, "start", True)
+        b += text(1040, 118 + i * 34, kind, 14, GRAY, "end")
+    b += text(940, 310, "Same model, different", 14, GRAY, "middle")
+    b += text(940, 330, "harness = different agent.", 14, GRAY, "middle")
+    b += text(940, 360, "MCP = plug for new tools", 14, BLUE, "middle", True)
+    write("harness-loop.svg", svg(1080, 400, b))
+
+
+def agent_stack_security():
+    agent_stack(security=True)
+
 if __name__ == "__main__":
-    for f in (cve_growth, job_waves, aixcc, bigsleep, nondeterminism, passk, location, caro, qi2015,
+    for f in (genai, agent_stack, agent_stack_security, harness_loop, cve_growth, job_waves, aixcc, bigsleep, nondeterminism, passk, location, caro, qi2015,
               agent_loop, patch_sets, decide, pipeline, station1, network, ghidra, contract, timeline, landscape):
         f()
     print("wrote", sorted(x for x in os.listdir(HERE) if x.endswith(".svg")))

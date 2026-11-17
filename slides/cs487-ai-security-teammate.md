@@ -205,6 +205,84 @@ Fourth column: autonomous pentest. Every box ships an agent and therefore also h
 
 ---
 
+<!-- _class: divider -->
+
+# Part 1 · Four definitions
+GenAI · LLM · agent · harness. Each in one line, with a picture.
+
+---
+
+## GenAI, and the LLM inside it
+
+![w:940](figures/genai.svg)
+
+<div class="box">
+
+**Generative AI** makes new content from a prompt. An **LLM** is the text kind: it predicts the next token, appends it, repeats. Chat, code, and agents are all built on that.
+
+</div>
+
+<!--
+Token ≈ word piece. "Temperature" controls how often it picks something other than the top
+token: this is where nondeterminism comes from (Part 2). The model never runs your code; it
+only ever emits text. Everything that *does* something is the next slide.
+-->
+
+---
+
+## An agent is an LLM with hands
+
+![w:940](figures/agent-stack.svg)
+
+<div class="box">
+
+**Agentic LLM:** the model's text is read as an **action**, something executes it, and the result goes back into the prompt. Loop until done. Example: `claude` fixing a build in a terminal.
+
+</div>
+
+<!--
+Walk left to right. The LLM only emits tokens. The harness turns some tokens into tool calls.
+The sandbox is where tools run; the policy chips decide what is allowed. Effects are what leaves
+the sandbox: a commit, an API call, an email. Students will meet all four boxes in Station 1.
+-->
+
+---
+
+## The harness is the part you can actually engineer
+
+![w:940](figures/harness-loop.svg)
+
+<div class="box">
+
+**Harness:** the program around the model: builds the prompt, calls the model, checks permissions, runs tools, keeps the transcript. The model is rented; the harness is yours.
+
+</div>
+
+<!--
+Step 3 is red on purpose: it is the only place a human or a rule can say no. Memory,
+compaction, retries, and budgets all live here too. MCP (Model Context Protocol) is the
+standard plug that lets a harness talk to a new tool, e.g. Ghidra or tshark, without code changes.
+-->
+
+---
+
+## Where security enters the picture
+
+![w:940](figures/agent-stack-security.svg)
+
+<div class="box">
+
+Untrusted text enters through tool results. The only gates are permission rules and sandbox policy. Everything an attacker wants is on the far right.
+
+</div>
+
+<!--
+Preview of Parts 2-4: finding bugs (the agent acts on the sandbox), fixing bugs (effects on a
+repo), and the headlines from earlier (the same loop pointed at someone else's world).
+-->
+
+---
+
 <!-- _class: clicker -->
 
 ## Q1 · Which of these actually happened?
