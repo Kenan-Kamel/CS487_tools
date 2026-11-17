@@ -8,22 +8,43 @@ engineering, vulnerability detection — then try it themselves.
 
 ## Quick start
 
-### 1. Build the slides
-
-Requires [Node.js](https://nodejs.org/) (for `npx`) and `python3` with
-`matplotlib` (for figures).
+**One command:**
 
 ```bash
-# Generate the SVG figures
-pip install matplotlib
-python3 slides/figures/make_figures.py
-
-# Build the HTML deck (add --no-pdf to skip the PDF)
-bash build.sh
+curl -fsSL https://raw.githubusercontent.com/Kenan-Kamel/CS487_tools/main/setup.sh | bash
 ```
 
-Open `slides/cs487-ai-security-teammate.html` in Chrome. Press **f** for
-full-screen, **p** for presenter view.
+Or clone manually:
+
+```bash
+git clone https://github.com/Kenan-Kamel/CS487_tools.git
+cd CS487_tools
+bash setup.sh
+```
+
+This clones the repo, builds the lab binaries, and opens the slides.
+
+### Open the slides
+
+The compiled HTML deck is included — no build step needed:
+
+```bash
+open slides/cs487-ai-security-teammate.html    # macOS
+xdg-open slides/cs487-ai-security-teammate.html  # Linux
+```
+
+Press **f** for full-screen, **p** for presenter view.
+
+### Rebuild slides from source (optional)
+
+Only needed if you edit the Markdown. Requires [Node.js](https://nodejs.org/)
+and `python3` with `matplotlib`.
+
+```bash
+pip install matplotlib
+python3 slides/figures/make_figures.py
+bash build.sh --no-pdf
+```
 
 ### 2. Set up Claude Code
 

@@ -1,9 +1,7 @@
 .DS_Store
 node_modules/
 
-# Build outputs. Delete these two lines if you want to commit built decks
-# (e.g. to publish them with GitHub Pages).
-slides/*.html
+# PDF builds (HTML is committed so the deck is ready to present from the repo)
 slides/*.pdf
 
 # Lab build artifacts
