@@ -12,5 +12,3 @@ lab/station3-ghidra/heartbleed/heartbleed
 lab/station3-ghidra/heartbleed/heartbleed-dbg
 lab/station3-ghidra/heartbleed/heartbleed-asan
 lab/station3-ghidra/heartbleed/trigger.bin
-lab/detect-with-llm/urlparse
-lab/detect-with-llm/urlparse-asan
