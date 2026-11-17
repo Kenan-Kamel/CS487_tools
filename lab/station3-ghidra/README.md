@@ -1,4 +1,8 @@
-# Station 3 · An agent drives Ghidra
+# Station 2 · Ghidra + LLM reverse engineering
+
+Two exercises: a warm-up (keycheck) and a main challenge (Heartbleed).
+
+## Exercise A — keycheck (5 min warm-up)
 
 `keycheck` is a stripped, PIE x86-64 binary built from `keycheck.c`. It
 accepts a 12-character license key of the form `XXXX-XXXX-XX`, validated
@@ -11,24 +15,50 @@ python3 findkey.py        # prints a valid key, e.g. ABEL-UIC4-87
 ./keycheck ABEL-UIC4-87   # key accepted
 ```
 
-## Runbook (10 min)
-
-Before class: import `keycheck` into Ghidra 12.1.4, run auto-analysis, enable
-GhidraMCP, register it with `claude mcp add ghidra ...` (see `../README.md`).
-
 Prompts:
 
 1. "What does this program check? Start from main."
-2. "Describe the key format and the validation function in plain English."
-3. "Is there any way to get 'key accepted' without a valid key?"
-4. "Rename the functions and variables to match what they do."
-5. "Give me a key that passes." (It will offer to brute-force. Let it, or show `findkey.py`.)
+2. "Is there any way to get 'key accepted' without a valid key?"
+3. "Rename the functions and variables to match what they do."
 
 What to point out:
+- It identifies FNV-1a from the two constants (2166136261, 16777619)
+- It finds the backdoor (a string compare). Ask the room: should this exist?
+- Renaming is where the agent earns its keep: decompiler output becomes readable
 
-- It identifies FNV-1a from the two constants. Make it show the decompiled line, not just assert it.
-- It finds the second accept path (a string compare). Ask the room: should this exist, and who would you ask? A model can find the backdoor; it cannot tell you whether it is authorized.
-- Renaming is where the agent earns its keep: the decompiler output becomes readable in one prompt.
+## Exercise B — Heartbleed (10–15 min main challenge)
+
+A minimal binary reproducing the **CVE-2014-0160 (Heartbleed)** pattern.
+Students find a memory-disclosure bug in a session handler.
+
+```sh
+cd heartbleed
+make                      # builds and strips ./heartbleed
+python3 trigger.py        # creates malicious input
+```
+
+Import `heartbleed` into Ghidra, run auto-analysis.
+
+Prompts:
+
+1. "What does this binary do? Start from main."
+2. "Describe the struct that main allocates on the stack."
+3. "Find security vulnerabilities in the heartbeat handler."
+4. "What data could an attacker leak, and how?"
+5. "Rename the decompiled functions and variables."
+
+Trigger the leak to prove it:
+```sh
+./heartbleed trigger.bin | xxd | head -30
+# Look for: sk-prod-..., admin, Tr0ub4dor&3
+```
+
+See `heartbleed/README.md` for the full walkthrough.
+
+## Setup
+
+Before class: import both binaries into Ghidra 12.1.4, run auto-analysis, enable
+GhidraMCP, register it with `claude mcp add ghidra ...` (see `../README.md`).
 
 ## Fallback
 

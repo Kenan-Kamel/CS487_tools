@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="721.753906pt" height="208.678313pt" viewBox="0 0 721.753906 208.678313" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="721.753906pt" height="208.72841pt" viewBox="0 0 721.753906 208.72841" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T03:33:48.081738</dc:date>
+    <dc:date>2026-11-17T08:49:12.454848</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -21,140 +21,140 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 208.678313 
-L 721.753906 208.678313 
+   <path d="M 0 208.72841 
+L 721.753906 208.72841 
 L 721.753906 -0 
 L 0 -0 
-L 0 208.678313 
+L 0 208.72841 
 z
 " style="fill: none"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 100.753906 201.478313 
-L 389.600965 201.478313 
-L 389.600965 24.070312 
-L 100.753906 24.070312 
-L 100.753906 201.478313 
+    <path d="M 100.753906 201.52841 
+L 389.600965 201.52841 
+L 389.600965 24.12041 
+L 100.753906 24.12041 
+L 100.753906 201.52841 
 z
 " style="fill: none"/>
    </g>
    <g id="patch_3">
-    <path d="M 100.753906 70.299809 
-L 345.539549 70.299809 
-L 345.539549 32.134313 
-L 100.753906 32.134313 
+    <path d="M 100.753906 70.349906 
+L 345.539549 70.349906 
+L 345.539549 32.18441 
+L 100.753906 32.18441 
 z
-" clip-path="url(#pe86a129a1f)" style="fill: #d9dde6"/>
+" clip-path="url(#p7a30b8b030)" style="fill: #d9dde6"/>
    </g>
    <g id="patch_4">
-    <path d="M 100.753906 131.857061 
-L 310.570172 131.857061 
-L 310.570172 93.691564 
-L 100.753906 93.691564 
+    <path d="M 100.753906 131.907158 
+L 310.570172 131.907158 
+L 310.570172 93.741662 
+L 100.753906 93.741662 
 z
-" clip-path="url(#pe86a129a1f)" style="fill: #0a4fa3"/>
+" clip-path="url(#p7a30b8b030)" style="fill: #0a4fa3"/>
    </g>
    <g id="patch_5">
-    <path d="M 100.753906 193.414313 
-L 267.829821 193.414313 
-L 267.829821 155.248816 
-L 100.753906 155.248816 
+    <path d="M 100.753906 193.46441 
+L 267.829821 193.46441 
+L 267.829821 155.298914 
+L 100.753906 155.298914 
 z
-" clip-path="url(#pe86a129a1f)" style="fill: #0a4fa3"/>
+" clip-path="url(#p7a30b8b030)" style="fill: #0a4fa3"/>
    </g>
    <g id="matplotlib.axis_1"/>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="56.652217" transform="rotate(-0 97.253906 56.652217)">Planted vulns</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="56.727363" transform="rotate(-0 97.253906 56.727363)">Planted vulns</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="118.209469" transform="rotate(-0 97.253906 118.209469)">Found</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="118.284615" transform="rotate(-0 97.253906 118.284615)">Found</text>
      </g>
     </g>
     <g id="ytick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="179.766721" transform="rotate(-0 97.253906 179.766721)">Patched</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="97.253906" y="179.841867" transform="rotate(-0 97.253906 179.841867)">Patched</text>
      </g>
     </g>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="349.211334" y="55.354561" transform="rotate(-0 349.211334 55.354561)">63</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="349.211334" y="55.407783" transform="rotate(-0 349.211334 55.407783)">63</text>
    </g>
    <g id="text_5">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="314.241956" y="116.911813" transform="rotate(-0 314.241956 116.911813)">54</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="314.241956" y="116.965035" transform="rotate(-0 314.241956 116.965035)">54</text>
    </g>
    <g id="text_6">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="271.501606" y="178.469064" transform="rotate(-0 271.501606 178.469064)">43</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="271.501606" y="178.522287" transform="rotate(-0 271.501606 178.522287)">43</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="100.753906" y="18.070312" transform="rotate(-0 100.753906 18.070312)">Seven autonomous systems, 63 planted bugs</text>
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="100.753906" y="18.12041" transform="rotate(-0 100.753906 18.12041)">Seven autonomous systems, 63 planted bugs</text>
    </g>
   </g>
   <g id="axes_2">
    <g id="patch_6">
-    <path d="M 521.9892 201.478313 
-L 714.553906 201.478313 
-L 714.553906 24.070312 
-L 521.9892 24.070312 
-L 521.9892 201.478313 
+    <path d="M 521.9892 201.52841 
+L 714.553906 201.52841 
+L 714.553906 24.12041 
+L 521.9892 24.12041 
+L 521.9892 201.52841 
 z
 " style="fill: none"/>
    </g>
    <g id="patch_7">
-    <path d="M 521.9892 93.858757 
-L 685.179629 93.858757 
-L 685.179629 32.134313 
-L 521.9892 32.134313 
+    <path d="M 521.9892 93.908855 
+L 685.179629 93.908855 
+L 685.179629 32.18441 
+L 521.9892 32.18441 
 z
-" clip-path="url(#pf5c82ab23f)" style="fill: #d50032"/>
+" clip-path="url(#p125d866c52)" style="fill: #d50032"/>
    </g>
    <g id="patch_8">
-    <path d="M 521.9892 193.414313 
-L 621.716685 193.414313 
-L 621.716685 131.689868 
-L 521.9892 131.689868 
+    <path d="M 521.9892 193.46441 
+L 621.716685 193.46441 
+L 621.716685 131.739966 
+L 521.9892 131.739966 
 z
-" clip-path="url(#pf5c82ab23f)" style="fill: #d50032"/>
+" clip-path="url(#p125d866c52)" style="fill: #d50032"/>
    </g>
    <g id="matplotlib.axis_3"/>
    <g id="matplotlib.axis_4">
     <g id="ytick_4">
      <g id="line2d_4"/>
      <g id="text_8">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="518.4892" y="68.431691" transform="rotate(-0 518.4892 68.431691)">Real bugs found</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="518.4892" y="68.506837" transform="rotate(-0 518.4892 68.506837)">Real bugs found</text>
      </g>
     </g>
     <g id="ytick_5">
      <g id="line2d_5"/>
      <g id="text_9">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="518.4892" y="167.987247" transform="rotate(-0 518.4892 167.987247)">Patched</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="518.4892" y="168.062393" transform="rotate(-0 518.4892 168.062393)">Patched</text>
      </g>
     </g>
    </g>
    <g id="text_10">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="687.627486" y="67.134035" transform="rotate(-0 687.627486 67.134035)">18</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="687.627486" y="67.187257" transform="rotate(-0 687.627486 67.187257)">18</text>
    </g>
    <g id="text_11">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="624.164541" y="166.68959" transform="rotate(-0 624.164541 166.68959)">11</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="624.164541" y="166.742813" transform="rotate(-0 624.164541 166.742813)">11</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="521.9892" y="18.070312" transform="rotate(-0 521.9892 18.070312)">Nobody planted these</text>
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="521.9892" y="18.12041" transform="rotate(-0 521.9892 18.12041)">Nobody planted these</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="pe86a129a1f">
-   <rect x="100.753906" y="24.070312" width="288.847059" height="177.408"/>
+  <clipPath id="p7a30b8b030">
+   <rect x="100.753906" y="24.12041" width="288.847059" height="177.408"/>
   </clipPath>
-  <clipPath id="pf5c82ab23f">
-   <rect x="521.9892" y="24.070312" width="192.564706" height="177.408"/>
+  <clipPath id="p125d866c52">
+   <rect x="521.9892" y="24.12041" width="192.564706" height="177.408"/>
   </clipPath>
  </defs>
 </svg>

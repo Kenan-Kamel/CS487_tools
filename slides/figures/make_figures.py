@@ -418,6 +418,9 @@ def genai():
 
 def agent_stack(security=False):
     b = ""
+    dy = 50 if security else 0
+    if dy:
+        b += f"<g transform='translate(0,{dy})'>\n"
     # four cards
     b += card(20, 70, 190, 240, "LLM", "inference engine", "🤖")
     b += chip(36, 268, 158, "KV cache", PBLUE, "C")
@@ -449,19 +452,21 @@ def agent_stack(security=False):
     b += text(300, 380, "C  state the loop carries", 15, GRAY)
     b += text(560, 380, "E  environment it can touch", 15, GRAY)
     b += text(860, 380, "X  what actually changes", 15, GRAY)
+    if dy:
+        b += "</g>\n"
     if security:
         def note(x, y, lines, anchor="start"):
             t = ""
             for i, l in enumerate(lines):
                 t += text(x, y + i * 20, l, 15, RED, anchor, i == 0)
             return t
-        b += f"<path d='M700 232 L700 -2' stroke='{RED}' stroke-width='2.5' stroke-dasharray='5 4' marker-end='url(#a)'/>"
-        b += note(685, 14, ["1 · untrusted input enters here", "file contents, web pages, tool output"], "end")
-        b += f"<circle cx='385' cy='100' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
-        b += note(300, 350, ["2 · the only gate: permission rules + sandbox policy"], "start")
-        b += f"<circle cx='990' cy='100' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
+        b += f"<path d='M700 {232 + dy} L700 10' stroke='{RED}' stroke-width='2.5' stroke-dasharray='5 4' marker-end='url(#a)'/>"
+        b += note(685, 20, ["1 · untrusted input enters here", "file contents, web pages, tool output"], "end")
+        b += f"<circle cx='385' cy='{100 + dy}' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
+        b += note(300, 390, ["2 · the only gate: permission rules + sandbox policy"], "start")
+        b += f"<circle cx='990' cy='{100 + dy}' r='22' fill='none' stroke='{RED}' stroke-width='3'/>"
         b += note(1065, 20, ["3 · attackers only care about X"], "end")
-    write("agent-stack-security.svg" if security else "agent-stack.svg", svg(1080, 390, b))
+    write("agent-stack-security.svg" if security else "agent-stack.svg", svg(1080, 390 + dy, b))
 
 def harness_loop():
     b = ""
@@ -511,8 +516,74 @@ def harness_loop():
 def agent_stack_security():
     agent_stack(security=True)
 
+def paper_pipelines():
+    def chain(steps, name, w=480, h=80):
+        b = ""
+        n = len(steps)
+        bw, bh = 90, 56
+        margin = 5
+        gap = (w - 2 * margin - n * bw) / max(n - 1, 1)
+        for i, (label, fill, stroke) in enumerate(steps):
+            x = margin + i * (bw + gap)
+            b += f"<rect x='{x:.0f}' y='12' width='{bw}' height='{bh}' rx='8' fill='{fill}' stroke='{stroke}' stroke-width='2'/>"
+            lines = label.split('\n')
+            cy = 12 + bh / 2
+            if len(lines) == 1:
+                b += text(x + bw / 2, cy + 5, lines[0], 13, INK, "middle")
+            else:
+                b += text(x + bw / 2, cy - 3, lines[0], 12, INK, "middle", True)
+                b += text(x + bw / 2, cy + 14, lines[1], 12, GRAY, "middle")
+            if i < n - 1:
+                ax1 = x + bw + 3
+                ax2 = margin + (i + 1) * (bw + gap) - 3
+                b += arrow(ax1, 12 + bh / 2, ax2, 12 + bh / 2)
+        write(name, svg(w, h, b))
+
+    chain([("Target docs", TINT, "#c9ced8"), ("LLM generates\nseeds", "#dbe6f6", BLUE),
+           ("Coverage\nfuzzer", TINT, "#c9ced8"), ("76 bugs\nconfirmed", "#fde8ec", RED)],
+          "pipeline-fuzz4all.svg")
+    chain([("RFC spec", TINT, "#c9ced8"), ("LLM infers\ngrammar", "#dbe6f6", BLUE),
+           ("AFL++\nmutations", TINT, "#c9ced8"), ("New states\n& bugs", "#fde8ec", RED)],
+          "pipeline-chatafl.svg")
+    chain([("API docs", TINT, "#c9ced8"), ("LLM writes\nprograms", "#dbe6f6", BLUE),
+           ("Execute +\nmutate", TINT, "#c9ced8"), ("65 bugs\ncrash+wrong", "#fde8ec", RED)],
+          "pipeline-titanfuzz.svg")
+    chain([("Opt pass\nsource", TINT, "#c9ced8"), ("LLM writes\ntests", "#dbe6f6", BLUE),
+           ("Compile +\nrun", TINT, "#c9ced8"), ("Optimization\nbugs", "#fde8ec", RED)],
+          "pipeline-whitefox.svg")
+    chain([("OS source\ncode", TINT, "#c9ced8"), ("Build CFG +\ntypestate specs", TINT, NAVY),
+           ("Path-sensitive\nsolver", TINT, NAVY), ("Bug reports", "#fde8ec", RED)],
+          "pipeline-spata.svg")
+
+def llm_analysis():
+    b = ""
+    techniques = [
+        ("Fuzzing", BLUE,
+         ["seed inputs and programs", "protocol grammars", "mutation strategies"],
+         ["Fuzz4All · ICSE '24", "ChatAFL · NDSS '24", "TitanFuzz · ISSTA '23"]),
+        ("Symbolic execution", NAVY,
+         ["paths to explore", "loop invariants", "constraint approximations"],
+         ["emerging: path selection,", "harness generation"]),
+        ("Taint analysis", RED,
+         ["sources and sinks", "propagation rules", "sanitizer specifications"],
+         ["emerging: custom-API", "source/sink discovery"]),
+    ]
+    cw, gap = 320, 30
+    x0 = (1080 - 3 * cw - 2 * gap) // 2
+    for i, (name, col, items, papers) in enumerate(techniques):
+        x = x0 + i * (cw + gap)
+        b += f"<rect x='{x}' y='20' width='{cw}' height='52' rx='10' fill='{col}'/>"
+        b += text(x + cw // 2, 54, name, 22, "#fff", "middle", True)
+        b += f"<rect x='{x}' y='82' width='{cw}' height='220' rx='10' fill='{TINT}' stroke='#c9ced8'/>"
+        b += text(x + 18, 112, "LLM writes…", 18, col, "start", True)
+        for j, item in enumerate(items):
+            b += text(x + 26, 144 + j * 30, "• " + item, 17, INK)
+        for j, p in enumerate(papers):
+            b += text(x + 18, 254 + j * 20, p, 14, GRAY)
+    write("llm-analysis.svg", svg(1080, 320, b))
+
 if __name__ == "__main__":
     for f in (genai, agent_stack, agent_stack_security, harness_loop, cve_growth, job_waves, aixcc, bigsleep, nondeterminism, passk, location, caro, qi2015,
-              agent_loop, patch_sets, decide, pipeline, station1, network, ghidra, contract, timeline, landscape):
+              agent_loop, patch_sets, decide, pipeline, station1, network, ghidra, contract, timeline, landscape, llm_analysis, paper_pipelines):
         f()
     print("wrote", sorted(x for x in os.listdir(HERE) if x.endswith(".svg")))

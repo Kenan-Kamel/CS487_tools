@@ -1,202 +1,142 @@
-# UIC CS Marp slide template
+# CS 487: AI for Security — Lecture & Lab Materials
 
-Write lecture slides in Markdown and get decks that look like the UIC CS
-PowerPoint template, with click-to-reveal animations, iClicker quiz slides,
-and a PowerPoint-style presenter view. Output is a self-contained HTML deck
-(for presenting) and a PDF (for handouts).
+Slide deck and hands-on lab stations for the **AI as a Security Teammate**
+lecture in CS 487 (Building Secure Computer Systems) at UIC.
 
-![Example slides](docs/preview.png)
+Students see how LLMs fit inside real security tools — fuzzing, reverse
+engineering, vulnerability detection — then try it themselves.
 
 ## Quick start
 
-Requirements: [Node.js](https://nodejs.org/) (for `npx`) and `python3`.
-Marp CLI itself is fetched by `npx` on first run.
+### 1. Build the slides
 
-1. Click **Use this template** on GitHub, or copy this folder.
-2. Copy `slides/example.md` to a new file, e.g. `slides/w01-intro.md`, and edit it.
-3. Build:
+Requires [Node.js](https://nodejs.org/) (for `npx`) and `python3` with
+`matplotlib` (for figures).
 
-   ```bash
-   ./build.sh
-   ```
+```bash
+# Generate the SVG figures
+pip install matplotlib
+python3 slides/figures/make_figures.py
 
-   This builds every `slides/*.md` into a `.html` and a `.pdf` next to it.
-   Build one deck, or skip the PDF while editing:
-
-   ```bash
-   ./build.sh --no-pdf slides/w01-intro.md
-   ```
-
-4. Open the `.html` in Chrome and press `f` for full screen, or `p` for
-   presenter view.
-
-For live preview while writing, install the
-[Marp for VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
-extension. `.vscode/settings.json` already registers the theme. The VS Code
-preview doesn't load the `<pause>` plugin, so it shows those steps fully
-revealed.
-
-## Writing slides
-
-Each deck starts with this front matter:
-
-```yaml
----
-marp: true
-theme: uic-cs
-size: 16:9
-paginate: true
-title: "Lecture Title"
-author: Your Name
----
+# Build the HTML deck (add --no-pdf to skip the PDF)
+bash build.sh
 ```
 
-Slides are separated by `---`. A slide title is a `##` heading and gets the
-cyan underline bar automatically. **Bold** renders navy and *emphasis* renders
-red.
+Open `slides/cs487-ai-security-teammate.html` in Chrome. Press **f** for
+full-screen, **p** for presenter view.
 
-### Slide types
+### 2. Set up Claude Code
 
-Set a slide's type with a comment at the top of that slide:
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+claude --version
+```
 
-| Comment | Slide |
+Hand out a class API key:
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...   # one key per class, revoked after
+claude
+```
+
+### 3. Install lab tools
+
+```bash
+pip install flawfinder
+sudo apt install -y cppcheck tshark
+```
+
+For the Ghidra station, install
+[Ghidra 12.1.4](https://github.com/NationalSecurityAgency/ghidra/releases)
+and the [GhidraMCP](https://github.com/LaurieWired/GhidraMCP) extension.
+
+## Lab stations
+
+### Station 1 — Packet analysis (`lab/station2-packets/`)
+
+Give a `.pcap` file to Claude via `tshark`. The LLM summarizes network
+traffic: protocols, conversations, and suspicious activity.
+
+```bash
+# Verify the pcap works
+tshark -r lab/station2-packets/demo.pcap -q -z conv,tcp
+```
+
+### Station 2 — Ghidra reverse engineering (`lab/station3-ghidra/`)
+
+Two exercises using Ghidra + an LLM:
+
+**Warm-up (5 min) — keycheck:**
+```bash
+cd lab/station3-ghidra
+make                        # builds and strips ./keycheck
+python3 findkey.py          # prints a valid key
+```
+Import `keycheck` into Ghidra. Ask the LLM to explain the binary, find the
+hash algorithm (FNV-1a), and discover the backdoor key.
+
+**Main challenge (15 min) — Heartbleed (CVE-2014-0160 pattern):**
+```bash
+cd lab/station3-ghidra/heartbleed
+make                        # builds and strips ./heartbleed
+python3 trigger.py          # creates malicious input
+./heartbleed trigger.bin | xxd | head -30   # see the leaked secrets
+```
+Import `heartbleed` into Ghidra. Ask the LLM to find the memory-disclosure
+vulnerability — it should identify the missing bounds check on `memcpy` that
+lets a client-controlled length leak session tokens and passwords.
+
+### Station 3 — LLM vs static analyzers (`lab/detect-with-llm/`)
+
+Students compare traditional static analysis tools against an LLM code
+reviewer on `urlparse.c`, a URL parser with 5 planted security bugs.
+
+```bash
+cd lab/detect-with-llm
+make                        # build the program
+bash analyze.sh             # run flawfinder + cppcheck (finds 1-2 bugs)
+# Paste urlparse.c into Claude and ask for a security review (finds 4-5 bugs)
+bash reveal.sh              # see the ground-truth scorecard
+bash exploit.sh             # trigger each bug with AddressSanitizer
+```
+
+The 5 bugs:
+1. Buffer overflow (`strcpy` into 16-byte scheme buffer)
+2. Format-string vulnerability (`printf(key)`)
+3. Null-byte injection (`%00` truncates C strings)
+4. Off-by-one in `strncpy` host parsing
+5. Check-then-decode path traversal bypass (`is_safe_path` before `url_decode`)
+
+## Slide deck overview
+
+| Part | Topic |
 |---|---|
-| *(none)* | Normal content slide |
-| `<!-- _class: title -->` | Centered title slide: `#` course, `##` lecture title, `###` term, then your name |
-| `<!-- _class: divider -->` | Section divider: `#` heading plus one line of text |
-| `<!-- _class: clicker -->` | iClicker question: gold "ICLICKER" badge |
-| `<!-- _class: answer -->` | iClicker answer: navy "ANSWER" badge; `**bold**` in the title shows red |
-
-Add `<!-- _paginate: false -->` to hide the page number on a slide.
-
-### Click-to-reveal
-
-These work in the HTML deck only. The PDF always shows the complete slide.
-
-**`<pause>`:** put it on its own line, starting at the beginning of the line.
-Everything after it on the slide waits for a keypress, then fades in. Each
-`<pause>` is one more click. Like LaTeX Beamer's `\pause`.
-
-```markdown
-- Shown immediately
-<pause>
-- Shown on the first click
-<pause>
-> Shown on the second click
-```
-
-**`*` lists:** a list written with `*` (or `1)` for numbers) reveals one item
-per click. A `* ### Heading` item with indented `-` bullets reveals as one
-group:
-
-```markdown
-* ### Other classics
-  - NULL pointer dereference
-  - Data races
-```
-
-**Any block:** wrap it in `<div data-marpit-fragment>` with blank lines inside.
-
-All three share one click order, top to bottom. Inside a column, a `<pause>`
-step stops at the end of that column.
-
-### Hiding a slide
-
-Put `<!-- hide -->` on its own line anywhere in a slide to leave it out of
-the build, like PowerPoint's *Hide Slide*. The slide is removed from the HTML,
-the PDF, and the presenter notes, and page numbers stay consecutive. Delete
-the line to bring the slide back.
-
-```markdown
-<!-- _class: answer -->
-<!-- hide -->
-
-## Q6 → **D. SQL injection**
-```
-
-Use this rather than wrapping a slide in `<!-- ... -->`. Marp turns any
-comment that isn't a directive into a speaker note, so a commented-out slide
-still ends up in the HTML file, where students can read it.
-
-### Commenting out a line
-
-Start a line with `%%` to comment it out, like `//` in C. The line is removed
-before Marp reads the file, so it never reaches the slide, the notes, the
-HTML, or the PDF. No blank lines are needed, and a list with a commented-out
-bullet stays one list:
-
-```markdown
-- Stack canaries, DEP/NX, ASLR, CFI
-%% - Pointer authentication (skip this year)
-- Sanitizers, fuzzing
-%% TODO: add the Android numbers chart
-```
-
-`%%` must be the first thing on the line (indentation is fine, so nested
-bullets work). Inside ```` ``` ```` or `~~~` code blocks it is left alone,
-and `%%` in the middle of a line is ordinary text. VS Code's preview doesn't
-apply it and shows these lines as text; `build.sh` does.
-
-### Layout helpers
-
-| Markup | Effect |
-|---|---|
-| `<div class="cols">` + two `<div>`s | Two columns (`cols3` for three) |
-| `<div class="box">` | Tinted panel with a cyan edge |
-| `<span class="ok">` / `<span class="bad">` | Green / red bold text |
-| `<span class="tag">` | Small red label |
-| `<span class="small">` | Small gray text |
-| `<br>` or `&nbsp;` on its own line | Extra vertical space |
-
-Put a blank line after each opening `<div>` and before each `</div>` so the
-Markdown inside is still formatted. See `slides/example.md` for all of these
-in use.
-
-### Presenter notes
-
-HTML comments that are not directives become speaker notes:
-
-```markdown
-<!--
-Ask the class which defense removes the bug.
--->
-```
-
-### Presenter view
-
-Press `p` in the HTML deck to open presenter view in a new window: current
-slide, next slide, notes, and a timer. This template adds:
-
-- **Slide strip:** thumbnails of every slide along the bottom, like
-  PowerPoint's presenter view. Click one to jump there; the audience window
-  follows. The current slide is highlighted and kept in view.
-- **Resizable panes:** drag the vertical divider to resize the columns, the
-  handle under the next-slide preview to enlarge it, and the top edge of the
-  strip to make thumbnails bigger. Double-click a handle to reset it. Sizes
-  are remembered per browser.
+| 1 | Definitions: GenAI, LLM, agent, harness |
+| 2 | Real-world applications: AIxCC, Big Sleep, LLM-guided fuzzing |
+| 3 | Paper examples: Fuzz4All, ChatAFL, TitanFuzz, WhiteFox, SPATA |
+| 4 | Hands-on labs |
 
 ## Project layout
 
 ```
-slides/                       your decks (*.md); builds land next to them
-theme/uic-cs.css              the Marp theme (colors, fonts, slide types)
-engine/marp-engine.mjs        Marp plugin: <pause>, <!-- hide -->, and %% comments
-engine/presenter-extras.html  presenter-view slide strip + resize handles, added to each HTML build
-build.sh                      builds HTML + PDF
-.vscode/settings.json         theme setup for the VS Code preview
+slides/                           lecture deck (Markdown → HTML)
+slides/figures/                   SVG figures (generated by make_figures.py)
+theme/uic-cs.css                  Marp theme (UIC colors and layout)
+engine/                           Marp plugins (pause, hide, %% comments)
+lab/station2-packets/             pcap analysis station
+lab/station3-ghidra/              Ghidra RE station (keycheck + heartbleed)
+lab/detect-with-llm/              LLM bug detection station
+build.sh                          builds HTML + PDF
 ```
 
-To change the look, edit `theme/uic-cs.css`. The UIC colors are CSS
-variables at the top (`--uic-navy`, `--uic-cyan`, ...).
+## Before class checklist
 
-## Notes
-
-- `build.sh` pins Marp CLI (`MARP_CLI_VERSION`) because the `<pause>` plugin
-  uses Marp's internal rule names. Re-check `<pause>` when you bump it.
-- `build.sh` closes stdin for Marp. Without that, Marp waits for piped input
-  when run from another script or an editor task, and appears to hang.
-- The HTML deck is a single file you can post to a course site. If a deck uses
-  local images, upload them alongside it with the same relative paths.
+- [ ] `claude --version` works in the SEED VM
+- [ ] API key created with spend limit, ready to hand out
+- [ ] `tshark -r lab/station2-packets/demo.pcap` works
+- [ ] `keycheck` and `heartbleed` built, imported into Ghidra, auto-analysis done
+- [ ] `lab/detect-with-llm/urlparse` builds with `make`
+- [ ] Projector laptop has Claude logged in with your own account
 
 ## License
 

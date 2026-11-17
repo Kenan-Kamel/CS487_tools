@@ -1,13 +1,12 @@
 # Lab materials · AI as a Security Teammate (CS 487)
 
-Three stations. Station 1 is for students. Stations 2 and 3 are instructor
-demos by default; each has a runbook so either can be student-driven.
+Three stations, each can be instructor demo or student-driven.
 
 | Station | Directory | What happens | Needs |
 |---|---|---|---|
-| 1 | `station1-find-and-fix/` | static analysis + agent finds and patches `recparse.c`, students break the patch | gcc, Claude Code, flawfinder (optional cppcheck, Semgrep) |
-| 2 | `station2-packets/` | agent summarizes and questions a pcap | tshark, Claude Code |
-| 3 | `station3-ghidra/` | agent drives Ghidra on a stripped binary | Ghidra 12.1.4, GhidraMCP, Claude Code |
+| 1 | `station2-packets/` | agent summarizes and questions a pcap | tshark, Claude Code |
+| 2 | `station3-ghidra/` | agent reverses stripped binaries in Ghidra (keycheck warm-up + Heartbleed main) | Ghidra 12.1.4, GhidraMCP, Claude Code |
+| 3 | `detect-with-llm/` | students compare static analyzers vs LLM on a buggy C program | gcc, flawfinder, cppcheck, Claude |
 
 ## Setup in the SEED VM (Ubuntu 20.04)
 
@@ -38,12 +37,9 @@ and it skips the login prompt. Create the key in the Anthropic Console with the
 ```sh
 pip3 install flawfinder            # works on Python 3.8
 sudo apt install -y cppcheck tshark
-# Semgrep needs Python 3.10+, so use Docker in the SEED VM:
-docker pull semgrep/semgrep
-docker run --rm -v "$PWD:/src" semgrep/semgrep semgrep scan --config p/c
 ```
 
-**Ghidra (station 3 only).** Ghidra 12.1.4 from github.com/NationalSecurityAgency/ghidra/releases,
+**Ghidra (station 2).** Ghidra 12.1.4 from github.com/NationalSecurityAgency/ghidra/releases,
 then the GhidraMCP 2.0 extension zip from github.com/LaurieWired/GhidraMCP/releases:
 File → Install Extensions → + → pick the zip → restart Ghidra → File → Configure →
 Developer → enable GhidraMCPPlugin. Then register the server with Claude Code:
@@ -61,7 +57,8 @@ prompts, same lesson.
 
 - [ ] `claude --version` works in the SEED VM
 - [ ] Class key created, spend limit set, copied somewhere you can read aloud
-- [ ] `cd lab/station1-find-and-fix && make inputs && make && ./check.sh` shows 3 FAIL
-- [ ] `tshark -r lab/station2-packets/demo.pcap -q -z conv,tcp` prints 4 conversations
+- [ ] `tshark -r lab/station2-packets/demo.pcap -q -z conv,tcp` prints conversations
 - [ ] `lab/station3-ghidra/keycheck` built and imported into Ghidra, auto-analysis done
+- [ ] `cd lab/station3-ghidra/heartbleed && make && python3 trigger.py` builds the Heartbleed binary
+- [ ] `lab/detect-with-llm/urlparse` builds with `make`
 - [ ] Projector laptop has `claude` logged in with your own account, not the class key

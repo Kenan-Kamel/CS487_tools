@@ -268,7 +268,7 @@ standard plug that lets a harness talk to a new tool, e.g. Ghidra or tshark, wit
 
 ## Where security enters the picture
 
-![w:940](figures/agent-stack-security.svg)
+![w:940](figures/agent-stack.svg)
 
 <div class="box">
 
@@ -392,6 +392,133 @@ A crash is ground truth. A passing test is not. A person is the only verifier fo
 ![w:1080](figures/aixcc.svg)
 
 <span class="small">Final at DEF CON 33, Aug 2025. 1st Team Atlanta, 2nd Trail of Bits, 3rd Theori. All seven systems are open source. I led the repair-stage work on Team Atlanta's system: ~20% more accurate, up to 50% fewer tokens.</span>
+
+---
+
+## LLMs inside the analysis toolbox
+
+![w:1080](figures/llm-analysis.svg)
+
+<div class="box">
+
+The LLM never replaces the analyzer — it writes what the analyzer needs to start, or decides where it should look next.
+
+</div>
+
+<!--
+Fuzzing: Fuzz4All (Xia et al., ICSE 2024) generates inputs for compilers, interpreters, and
+runtimes — 76 bugs in GCC/Clang/Go/javac. ChatAFL (Meng et al., NDSS 2024) uses the LLM
+to infer protocol grammars, then feeds them to a coverage-guided fuzzer. TitanFuzz (Deng
+et al., ISSTA 2023) generates programs to test DL libraries — 65 bugs in PyTorch/TensorFlow.
+Symbolic execution and taint analysis are emerging: LLMs select paths or label sources/sinks,
+but the tool still executes and the human still triages.
+-->
+
+---
+
+## LLM-guided fuzzing: two approaches
+
+<div class="cols">
+<div>
+
+### Fuzz4All · ICSE 2024
+
+![w:460](figures/pipeline-fuzz4all.svg)
+
+LLM generates seed programs for compilers; coverage feedback steers the next round. **76 bugs** in GCC, Clang, Go, javac — 47 confirmed new.
+
+</div>
+<div>
+
+### ChatAFL · NDSS 2024
+
+![w:460](figures/pipeline-chatafl.svg)
+
+LLM reads the RFC, infers a protocol grammar → AFL++ uses it for structure-aware mutations. New bugs and states that AFLNET missed.
+
+</div>
+</div>
+
+<!--
+Fuzz4All: Xia, Wei, Zhang, ICSE 2024. The LLM replaces the hand-written grammar that
+traditional grammar-based fuzzers need. Autoprompting: the LLM writes its own generation
+prompt from target documentation.
+ChatAFL: Meng, Nguyen, Le Goues, NDSS 2024. The LLM enriches the state machine that
+guides protocol fuzzing. The fuzzer still does execution and crash detection.
+Both papers: the LLM writes what the fuzzer needs to start; the fuzzer does
+what the LLM cannot (run millions of inputs, detect crashes, measure coverage).
+-->
+
+---
+
+## LLM-assisted testing and detection
+
+<div class="cols">
+<div>
+
+### TitanFuzz · ISSTA 2023
+
+![w:460](figures/pipeline-titanfuzz.svg)
+
+LLM writes programs from API docs, mutates to find edge cases. **65 bugs** including silent wrong-result bugs harder to catch than crashes.
+
+</div>
+<div>
+
+### WhiteFox · ICSE 2024
+
+![w:460](figures/pipeline-whitefox.svg)
+
+LLM reads optimization source, writes tests that exercise specific compiler passes. Finds bugs random testing cannot reach.
+
+</div>
+</div>
+
+<!--
+TitanFuzz: Deng et al., ISSTA 2023. Two-stage: generate API-using programs from docs, then
+mutate. Some bugs are semantic (wrong numerical results), not just crashes.
+WhiteFox: Yang et al., ICSE 2024. White-box approach: the LLM sees the optimization code,
+not just the compiler's interface. Writes test programs that target specific assumptions.
+Pattern across all four papers: LLM writes the seed/grammar/test, tool executes, crash or
+coverage is the oracle, human triages. The LLM replaces manual specification, not the tool.
+-->
+
+---
+
+## Not everything needs an LLM
+
+<div class="cols">
+<div>
+
+### SPATA · path-sensitive typestate analysis
+
+![w:460](figures/pipeline-spata.svg)
+
+Tracks object states (locked/unlocked, open/closed) along execution paths in OS kernel code. Pure static analysis — precision comes from the solver, not a model.
+
+</div>
+<div>
+
+### Where the LLM fits
+
+The analysis is sound without an LLM. The LLM accelerates the **human parts:**
+
+- Writing typestate specifications
+- Triaging false positives
+- Summarizing path conditions
+
+*Same pattern: the LLM writes what the tool needs. The tool does what the LLM cannot.*
+
+</div>
+</div>
+
+<!--
+SPATA: path-sensitive typestate analysis for OS/kernel code. Typestate = finite-state protocol
+(e.g. lock → use → unlock). Path-sensitive = tracks states per execution path, not just
+per-function. No LLM. The point: traditional program analysis already finds real bugs.
+The LLM opportunity is in the manual parts — writing the specs and triaging the output —
+not in replacing the analysis engine.
+-->
 
 ---
 

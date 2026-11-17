@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="529.842969pt" height="175.414312pt" viewBox="0 0 529.842969 175.414312" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="529.842969pt" height="175.46441pt" viewBox="0 0 529.842969 175.46441" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-17T03:33:48.094021</dc:date>
+    <dc:date>2026-11-17T08:49:12.486899</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -21,69 +21,69 @@
  </defs>
  <g id="figure_1">
   <g id="patch_1">
-   <path d="M 0 175.414312 
-L 529.842969 175.414312 
+   <path d="M 0 175.46441 
+L 529.842969 175.46441 
 L 529.842969 0 
 L 0 0 
-L 0 175.414312 
+L 0 175.46441 
 z
 " style="fill: none"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
-    <path d="M 159.942969 168.214313 
-L 522.642969 168.214313 
-L 522.642969 24.070312 
-L 159.942969 24.070312 
-L 159.942969 168.214313 
+    <path d="M 159.942969 168.26441 
+L 522.642969 168.26441 
+L 522.642969 24.12041 
+L 159.942969 24.12041 
+L 159.942969 168.26441 
 z
 " style="fill: none"/>
    </g>
    <g id="patch_3">
-    <path d="M 159.942969 80.773424 
-L 467.31585 80.773424 
-L 467.31585 30.622312 
-L 159.942969 30.622312 
+    <path d="M 159.942969 80.823521 
+L 467.31585 80.823521 
+L 467.31585 30.67241 
+L 159.942969 30.67241 
 z
-" clip-path="url(#p29509edd45)" style="fill: #0a4fa3"/>
+" clip-path="url(#padb85ba168)" style="fill: #0a4fa3"/>
    </g>
    <g id="patch_4">
-    <path d="M 159.942969 161.662312 
-L 412.671782 161.662312 
-L 412.671782 111.511201 
-L 159.942969 111.511201 
+    <path d="M 159.942969 161.71241 
+L 412.671782 161.71241 
+L 412.671782 111.561299 
+L 159.942969 111.561299 
 z
-" clip-path="url(#p29509edd45)" style="fill: #c98a00"/>
+" clip-path="url(#padb85ba168)" style="fill: #c98a00"/>
    </g>
    <g id="matplotlib.axis_1"/>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="156.442969" y="61.133024" transform="rotate(-0 156.442969 61.133024)">Big Sleep (LLM agent)</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="156.442969" y="61.208171" transform="rotate(-0 156.442969 61.208171)">Big Sleep (LLM agent)</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="156.442969" y="142.021913" transform="rotate(-0 156.442969 142.021913)">Fuzzilli (fuzzer)</text>
+      <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: end; fill: #656665" x="156.442969" y="142.09706" transform="rotate(-0 156.442969 142.09706)">Fuzzilli (fuzzer)</text>
      </g>
     </g>
    </g>
    <g id="text_3">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="471.926443" y="59.835368" transform="rotate(-0 471.926443 59.835368)">45</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="471.926443" y="59.888591" transform="rotate(-0 471.926443 59.888591)">45</text>
    </g>
    <g id="text_4">
-    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="417.282376" y="140.724257" transform="rotate(-0 417.282376 140.724257)">37</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #2b2b2b" x="417.282376" y="140.77748" transform="rotate(-0 417.282376 140.77748)">37</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="159.942969" y="18.070312" transform="rotate(-0 159.942969 18.070312)">Bugs found in V8, Apr–Sep 2026 · ~25% overlap</text>
+    <text style="font-size: 15px; font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'Liberation Sans', sans-serif; text-anchor: start; fill: #656665" x="159.942969" y="18.12041" transform="rotate(-0 159.942969 18.12041)">Bugs found in V8, Apr–Sep 2026 · ~25% overlap</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p29509edd45">
-   <rect x="159.942969" y="24.070312" width="362.7" height="144.144"/>
+  <clipPath id="padb85ba168">
+   <rect x="159.942969" y="24.12041" width="362.7" height="144.144"/>
   </clipPath>
  </defs>
 </svg>

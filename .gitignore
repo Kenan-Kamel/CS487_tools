@@ -5,7 +5,12 @@ node_modules/
 # (e.g. to publish them with GitHub Pages).
 slides/*.html
 slides/*.pdf
-lab/station1-find-and-fix/recparse
-lab/station1-find-and-fix/recparse-asan
-lab/station1-find-and-fix/inputs/
+
+# Lab build artifacts
 lab/station3-ghidra/keycheck
+lab/station3-ghidra/heartbleed/heartbleed
+lab/station3-ghidra/heartbleed/heartbleed-dbg
+lab/station3-ghidra/heartbleed/heartbleed-asan
+lab/station3-ghidra/heartbleed/trigger.bin
+lab/detect-with-llm/urlparse
+lab/detect-with-llm/urlparse-asan
